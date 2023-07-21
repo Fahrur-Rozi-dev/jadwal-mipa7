@@ -56,7 +56,7 @@ interface Subject {
       { subject: 'B Indonesia', time: '20:00 - 21:00' },
     ],
     Sabtu: [
-        { subject: 'Quran Hadist', time: '07:30 - 09:00' },
+        { subject: 'Quran Hadist', time: '07:00 - 07:45' },
         { subject: 'Quran Hadist', time: '07:30 - 09:00' },
         { subject: 'Matematika (Wajib)', time: '07:30 - 09:00' },
         { subject: 'Matematika (Wajib)', time: '07:30 - 09:00' },

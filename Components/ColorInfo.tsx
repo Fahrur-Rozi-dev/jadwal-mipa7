@@ -12,8 +12,9 @@ interface ColorInfoProps {
 const ColorInfo: React.FC<ColorInfoProps> = ({ color, description }) => {
   const colorStyle: React.CSSProperties = {
     backgroundColor: color,
-    width: '50px',
-    height: '50px',
+    width: '20px',
+    height: '20px',
+    borderRadius: '50%', // Mengatur bentuk lingkaran
     marginRight: '10px',
     display: 'inline-block',
   };
@@ -27,3 +28,4 @@ const ColorInfo: React.FC<ColorInfoProps> = ({ color, description }) => {
 };
 
 export default ColorInfo;
+
