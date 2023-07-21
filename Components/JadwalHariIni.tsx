@@ -35,18 +35,15 @@ function TodayScheduleTable() {
   const todaySchedule: Subject[] = subjectsData[dayWIB] || [];
 
   return (
-    <div>
-      <h2 className="text-xl font-semibold mb-2">Jadwal Pelajaran Hari Ini ({dayWIB})</h2>
-      <h1 className="text-3xl font-bold underline">
-      Hello world!
-    </h1>
+    <div className="m-1 pbKhusus">
+      <h2 className="text-xl font-bold font-sans mb-6 text-white text-center">Jadwal Pelajaran Hari Ini ( {dayWIB} )</h2>
       {todaySchedule.length > 0 ? (
-        <table className="w-full border-collapse border border-gray-300">
+        <table className="w-full border-collapse border border-gray-700 bg-white">
           <thead>
             <tr>
-              <th className="border border-gray-300 p-2">#</th>
-              <th className="border border-gray-300 p-2">Mata Pelajaran</th>
-              <th className="border border-gray-300 p-2">Jam</th>
+              <th className="border border-gray-700 p-2">#</th>
+              <th className="border border-gray-700 p-2">Mata Pelajaran</th>
+              <th className="border border-gray-700 p-2">Jam</th>
             </tr>
           </thead>
           <tbody>
@@ -55,9 +52,9 @@ function TodayScheduleTable() {
                 key={index}
                 className={getSubjectStatusClass(subject)}
               >
-                <td className="border border-gray-300 p-2">{index + 1}</td>
-                <td className="border border-gray-300 p-2">{subject.subject}</td>
-                <td className="border border-gray-300 p-2">{subject.time}</td>
+                <td className="border border-gray-700 p-2 text-center">{index + 1}</td>
+                <td className="border border-gray-700 p-2 text-center font-extrabold">{subject.subject}</td>
+                <td className="border border-gray-700 p-2 text-center font-extrabold">{subject.time}</td>
               </tr>
             ))}
           </tbody>

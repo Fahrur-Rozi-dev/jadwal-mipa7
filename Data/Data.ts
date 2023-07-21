@@ -49,6 +49,11 @@ interface Subject {
       { subject: 'B Indonesia', time: '15:00 - 15:45' },
       { subject: 'B Inggris', time: '15:45 - 16:00' },
       { subject: 'B Indonesia', time: '16:01 - 18:00' },
+      { subject: 'B Indonesia', time: '16:01 - 20:00' },
+      { subject: 'B Indonesia', time: '20:00 - 21:00' },
+      { subject: 'B Indonesia', time: '20:00 - 21:00' },
+      { subject: 'B Indonesia', time: '20:00 - 21:00' },
+      { subject: 'B Indonesia', time: '20:00 - 21:00' },
     ],
     Sabtu: [
         { subject: 'Quran Hadist', time: '07:30 - 09:00' },

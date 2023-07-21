@@ -1,15 +1,16 @@
 
 'use client'
 
+// DigitalClock.js
 
 import React, { useEffect, useState } from 'react';
 import moment from 'moment-timezone';
 import 'moment/locale/id'; // Import lokal bahasa Indonesia
-import subjectsData from '@/Data/Data';
 
 function DigitalClock() {
   const [dayWIB, setDayWIB] = useState('');
   const [yearWIB, setYearWIB] = useState('');
+  const [dateWIB, setDateWIB] = useState('');
   const [timeWIB, setTimeWIB] = useState('');
 
   useEffect(() => {
@@ -30,11 +31,15 @@ function DigitalClock() {
       // Ambil tahun dalam WIB
       const yearWIB = wibNow.format('YYYY');
 
+      // Format tanggal dalam WIB (dalam bahasa Indonesia)
+      const dateWIB = wibNow.format('LL');
+
       // Format jam, menit, dan detik dalam WIB
       const timeWIB = wibNow.format('HH:mm:ss');
 
       setDayWIB(dayWIB);
       setYearWIB(yearWIB);
+      setDateWIB(dateWIB);
       setTimeWIB(timeWIB);
     };
 
@@ -46,10 +51,10 @@ function DigitalClock() {
   }, []);
 
   return (
-    <div>
-      <h1>Jam Digital WIB</h1>
-      <p>Hari: {dayWIB}</p>
+    <div className="text-center mt-10 font-bold gap-4">
       <p>Tahun: {yearWIB}</p>
+      <p>Tanggal: {dateWIB}</p>
+      <div className="font-bold text-lg font-sans">Hari: {dayWIB}</div>
       <p>Waktu: {timeWIB}</p>
     </div>
   );
