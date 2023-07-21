@@ -4,6 +4,8 @@ import TodayScheduleTable from "@/Components/JadwalHariIni";
 import './globals.css'
 import Development from "@/Components/alert";
 import ColorInfo from "@/Components/ColorInfo";
+import SubjectList from "@/Components/SemuaMapel";
+// import JamDigital from "@/Components/time/time";
 
 export default function Home() {
   return (
@@ -11,6 +13,7 @@ export default function Home() {
   <section>
       <Development />
       <DigitalClock />
+      {/* <JamDigital /> */}
       {/* <SubjectTable /> */}
       <br />
       <TodayScheduleTable />
@@ -22,6 +25,8 @@ export default function Home() {
       <ColorInfo color='#f3f3f3' description="Putih berarti Belum selesai" />
       </div>
     </div>
+
+    <SubjectList />
 
 
   <div className='air air1'></div>
