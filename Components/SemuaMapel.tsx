@@ -18,7 +18,7 @@ interface Subject {
 const SubjectTable: React.FC<SubjectTableProps> = ({ day, subjects }) => {
   return (
     <div className="text-center m-1">
-      <h3 className="bg-slate-700 text-white p-4 text-xl">{day}</h3>
+      <h3 className="bg-slate-700 text-white p-4 text-xl mb-1 border outline-white">{day}</h3>
       <table className="w-full border-collapse border border-gray-700 bg-white">
         <thead>
           <tr>
