@@ -1,84 +1,84 @@
-'use client'
+// 'use client'
 
-// TodayScheduleTable.tsx
-import React, { useEffect, useState } from 'react';
-import moment from 'moment-timezone';
-import 'moment/locale/id'; // Import lokal bahasa Indonesia
-import subjectsData from '@/Data/Data';// Impor subjectsData dari file terpisah
+// // TodayScheduleTable.tsx
+// import React, { useEffect, useState } from 'react';
+// import moment from 'moment-timezone';
+// import 'moment/locale/id'; // Import lokal bahasa Indonesia
+// import subjectsData from '@/Data/Data';// Impor subjectsData dari file terpisah
 
-interface Subject {
-  subject: string;
-  time: string;
-}
+// interface Subject {
+//   subject: string;
+//   time: string;
+// }
 
-function TodayScheduleTable() {
-  const [dayWIB, setDayWIB] = useState('');
+// function TodayScheduleTable() {
+//   const [dayWIB, setDayWIB] = useState('');
 
-  useEffect(() => {
-    const updateDay = () => {
-      const utcNow = new Date();
-      const wibTimeZone = 'Asia/Jakarta';
-      const wibNow = moment(utcNow).tz(wibTimeZone);
-      wibNow.locale('id');
+//   useEffect(() => {
+//     const updateDay = () => {
+//       const utcNow = new Date();
+//       const wibTimeZone = 'Asia/Jakarta';
+//       const wibNow = moment(utcNow).tz(wibTimeZone);
+//       wibNow.locale('id');
 
-      const dayWIB = wibNow.format('dddd');
-      const currentTime = wibNow.format('HH:mm:ss'); // Format waktu dengan detik
-      setDayWIB(dayWIB);
-    };
+//       const dayWIB = wibNow.format('dddd');
+//       const currentTime = wibNow.format('HH:mm:ss'); // Format waktu dengan detik
+//       setDayWIB(dayWIB);
+//     };
 
-    const interval = setInterval(updateDay, 1000);
+//     const interval = setInterval(updateDay, 1000);
 
-    return () => clearInterval(interval);
-  }, []);
+//     return () => clearInterval(interval);
+//   }, []);
 
-  const todaySchedule: Subject[] = subjectsData[dayWIB] || [];
+//   const todaySchedule: Subject[] = subjectsData[dayWIB] || [];
 
-  return (
-    <div>
-      <h2 className="text-xl font-semibold mb-2">Jadwal Pelajaran Hari Ini ({dayWIB})</h2>
-      {todaySchedule.length > 0 ? (
-        <table className="w-full border-collapse border border-gray-300">
-          <thead>
-            <tr>
-              <th className="border border-gray-300 p-2">#</th>
-              <th className="border border-gray-300 p-2">Mata Pelajaran</th>
-              <th className="border border-gray-300 p-2">Jam</th>
-            </tr>
-          </thead>
-          <tbody>
-            {todaySchedule.map((subject, index) => (
-              <tr
-                key={index}
-                className={getSubjectStatusClass(subject)}
-              >
-                <td className="border border-gray-300 p-2">{index + 1}</td>
-                <td className="border border-gray-300 p-2">{subject.subject}</td>
-                <td className="border border-gray-300 p-2">{subject.time}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      ) : (
-        <div>
-        <p className="mb-4">Tidak ada jadwal pelajaran untuk hari ini</p>
-        <div>jika jadwal tidak muncul silahkan refresh browser anda</div>
-      </div>
-      )}
-    </div>
-  );
-}
+//   return (
+//     <div>
+//       <h2 className="text-xl font-semibold mb-2">Jadwal Pelajaran Hari Ini ({dayWIB})</h2>
+//       {todaySchedule.length > 0 ? (
+//         <table className="w-full border-collapse border border-gray-300">
+//           <thead>
+//             <tr>
+//               <th className="border border-gray-300 p-2">#</th>
+//               <th className="border border-gray-300 p-2">Mata Pelajaran</th>
+//               <th className="border border-gray-300 p-2">Jam</th>
+//             </tr>
+//           </thead>
+//           <tbody>
+//             {todaySchedule.map((subject, index) => (
+//               <tr
+//                 key={index}
+//                 className={getSubjectStatusClass(subject)}
+//               >
+//                 <td className="border border-gray-300 p-2">{index + 1}</td>
+//                 <td className="border border-gray-300 p-2">{subject.subject}</td>
+//                 <td className="border border-gray-300 p-2">{subject.time}</td>
+//               </tr>
+//             ))}
+//           </tbody>
+//         </table>
+//       ) : (
+//         <div>
+//         <p className="mb-4">Tidak ada jadwal pelajaran untuk hari ini</p>
+//         <div>jika jadwal tidak muncul silahkan refresh browser anda</div>
+//       </div>
+//       )}
+//     </div>
+//   );
+// }
 
-// Fungsi untuk memeriksa status mata pelajaran (belum dimulai, sedang berlangsung, atau telah selesai)
-function getSubjectStatusClass(subject: Subject): string {
-  const currentTime = moment().format('HH:mm:ss'); // Format waktu saat ini dengan detik
-  const [startTime, endTime] = subject.time.split(' - ');
-  if (currentTime < startTime) {
-    return 'bg-gray-200'; // Pelajaran belum dimulai
-  } else if (currentTime >= startTime && currentTime <= endTime) {
-    return 'bg-yellow-200'; // Pelajaran sedang berlangsung
-  } else {
-    return 'bg-green-200'; // Pelajaran telah selesai
-  }
-}
+// // Fungsi untuk memeriksa status mata pelajaran (belum dimulai, sedang berlangsung, atau telah selesai)
+// function getSubjectStatusClass(subject: Subject): string {
+//   const currentTime = moment().format('HH:mm:ss'); // Format waktu saat ini dengan detik
+//   const [startTime, endTime] = subject.time.split(' - ');
+//   if (currentTime < startTime) {
+//     return 'bg-gray-200'; // Pelajaran belum dimulai
+//   } else if (currentTime >= startTime && currentTime <= endTime) {
+//     return 'bg-yellow-200'; // Pelajaran sedang berlangsung
+//   } else {
+//     return 'bg-green-200'; // Pelajaran telah selesai
+//   }
+// }
 
-export default TodayScheduleTable;
+// export default TodayScheduleTable;
