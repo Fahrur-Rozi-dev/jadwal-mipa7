@@ -1,7 +1,7 @@
 import DigitalClock from "@/Components/GetTime";
 import SubjectTable from "@/Components/Jadwal";
 import TodayScheduleTable from "@/Components/JadwalHariIni";
-
+import './globals.css'
 
 export default function Home() {
   return (

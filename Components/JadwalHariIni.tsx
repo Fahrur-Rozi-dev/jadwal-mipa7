@@ -5,6 +5,7 @@ import React, { useEffect, useState } from 'react';
 import moment from 'moment-timezone';
 import 'moment/locale/id'; // Import lokal bahasa Indonesia
 import subjectsData from '@/Data/Data';// Impor subjectsData dari file terpisah
+import "@/app/globals.css"
 
 interface Subject {
   subject: string;
@@ -36,6 +37,9 @@ function TodayScheduleTable() {
   return (
     <div>
       <h2 className="text-xl font-semibold mb-2">Jadwal Pelajaran Hari Ini ({dayWIB})</h2>
+      <h1 className="text-3xl font-bold underline">
+      Hello world!
+    </h1>
       {todaySchedule.length > 0 ? (
         <table className="w-full border-collapse border border-gray-300">
           <thead>
