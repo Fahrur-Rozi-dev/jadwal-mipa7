@@ -6,6 +6,7 @@
 import React, { useEffect, useState } from 'react';
 import moment from 'moment-timezone';
 import 'moment/locale/id'; // Import lokal bahasa Indonesia
+import './time.css'
 
 function DigitalClock() {
   const [dayWIB, setDayWIB] = useState('');
@@ -51,11 +52,17 @@ function DigitalClock() {
   }, []);
 
   return (
-    <div className="text-center mt-10 font-bold gap-4">
-      <p>Tahun: {yearWIB}</p>
-      <p>Tanggal: {dateWIB}</p>
-      <div className="font-bold text-lg font-sans">Hari: {dayWIB}</div>
-      <p>Waktu: {timeWIB}</p>
+    <div className="m-3 rounded-xl bg-slate-800 mt-10">
+    <div className='container'>
+      <div className='display-date gap-2 text-white font-sans'>
+      <span>{dayWIB}</span>
+      <span>{dateWIB}</span>
+      </div>
+      <div className='container2'>
+      <span className='display-time'>{timeWIB}</span>
+      </div>
+    </div>
+
     </div>
   );
 }

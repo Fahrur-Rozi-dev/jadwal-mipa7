@@ -1,23 +1,23 @@
 import DigitalClock from "@/Components/GetTime";
-import SubjectTable from "@/Components/Jadwal";
 import TodayScheduleTable from "@/Components/JadwalHariIni";
 import './globals.css'
 import Development from "@/Components/alert";
 import ColorInfo from "@/Components/ColorInfo";
 import SubjectList from "@/Components/SemuaMapel";
-// import JamDigital from "@/Components/time/time";
+
 
 export default function Home() {
   return (
     <main className="">
   <section>
       <Development />
-      <DigitalClock />
-      {/* <JamDigital /> */}
-      {/* <SubjectTable /> */}
+      <div className="font-sans font-bold text-xl text-center mt-5 bg-white p-5 mx-8 rounded-xl">
+        <div>JADWAL PELAJARAN</div>
+        <div>XI - MIPA 7</div>
+      </div>
       <br />
       <TodayScheduleTable />
-      <div className="font-bold">
+      <div className="font-bold bg-slate-800 text-white m-3 pb-8 pt-1 rounded-xl mt-10">
       <div className="text-center mt-5 mb-5">Penjelasan Warna</div>
       <div className="ml-5">
       <ColorInfo color='#ccf9cc' description="Hijau berarti Sudah selesai" />
@@ -25,6 +25,8 @@ export default function Home() {
       <ColorInfo color='#f3f3f3' description="Putih berarti Belum selesai" />
       </div>
     </div>
+    <DigitalClock />
+
 
     <SubjectList />
 

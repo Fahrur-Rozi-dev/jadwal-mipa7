@@ -36,7 +36,7 @@ function TodayScheduleTable() {
 
   return (
     <div className="m-1">
-      <h2 className="text-xl font-bold font-sans mb-6 text-white text-center">Jadwal Pelajaran Hari Ini ( {dayWIB} )</h2>
+      <h2 className="text-xl font-bold font-sans mb-6 text-white text-center bg-slate-800 p-3 rounded-xl">Jadwal Pelajaran Hari Ini ( {dayWIB} )</h2>
       {todaySchedule.length > 0 ? (
         <table className="w-full border-collapse border border-gray-700 bg-white">
           <thead>

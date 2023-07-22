@@ -1,129 +1,123 @@
-// 'use client'
+'use client'
 
-// import React, { useEffect } from 'react';
+import React, { useEffect } from 'react';
 
-// function animation(span: HTMLElement) {
-//   span.className = "turn";
-//   setTimeout(function () {
-//     span.className = ""
-//   }, 700);
-// }
+const JamTanggal: React.FC = () => {
+  useEffect(() => {
+    function showTime() {
+      let time = new Date();
+      const displayTime = document.querySelector(".display-time") as HTMLElement;
+      displayTime.innerText = time.toLocaleTimeString("en-US", { hour12: false });
+      setTimeout(showTime, 1000);
+    }
 
-// const JamDigital: React.FC = () => {
-//   useEffect(() => {
-//     const jamInterval = setInterval(() => {
-//       const waktu = new Date();
-//       const jam = document.getElementById('jam') as HTMLDivElement;
+    function updateDate() {
+      let today = new Date();
 
-//       let hours = waktu.getHours().toString();
-//       let minutes = waktu.getMinutes().toString();
-//       let seconds = waktu.getSeconds().toString();
+      let dayName = today.getDay(),
+        dayNum = today.getDate(),
+        month = today.getMonth(),
+        year = today.getFullYear();
 
-//       if (waktu.getHours() < 10) {
-//         hours = '0' + waktu.getHours();
-//       }
-//       if (waktu.getMinutes() < 10) {
-//         minutes = '0' + waktu.getMinutes();
-//       }
-//       if (waktu.getSeconds() < 10) {
-//         seconds = '0' + waktu.getSeconds();
-//       }
-//       jam.innerHTML = '<span>' + hours + '</span>'
-//         + '<span>' + minutes + '</span>'
-//         + '<span>' + seconds + '</span>';
+      const months = [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December",
+      ];
+      const dayWeek = [
+        "Sunday",
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+      ];
 
-//       const spans = jam.getElementsByTagName('span') as HTMLCollectionOf<HTMLElement>;
-//       animation(spans[2]);
-//       if (seconds === '00') animation(spans[1]);
-//       if (minutes === '00' && seconds === '00') animation(spans[0]);
-//     }, 1000);
+      const IDCollection = ["day", "daynum", "month", "year"];
+      const val = [dayWeek[dayName], dayNum, months[month], year];
+      for (let i = 0; i < IDCollection.length; i++) {
+        const element = document.getElementById(IDCollection[i]) as HTMLElement;
+        if (element.firstChild) {
+          element.firstChild.nodeValue = val[i].toString();
+        }
+      }
+    }
 
-//     return () => {
-//       clearInterval(jamInterval);
-//     };
-//   }, []);
+    showTime();
+    updateDate();
+  }, []);
 
-//   return (
-//     <div className="jam-digital">
-//       <style>
-//         {`
-//         .jam-digital {
-//           width: 50%;
-//           margin: 50% 50%;
-//         }
-//         #jam span {
-//           float: left;
-//           text-align: center;
-//           font-size: 70px;
-//           margin: 0 2.5%;
-//           padding: 20px;
-//           width: 25%;
-//           border-radius: 10px;
-//           box-sizing: border-box;
-//         }
-//         #jam span:nth-child(1) {
-//           background: #a70c0c;
-//         }
-//         #jam span:nth-child(2) {
-//           background: #f6ab29;
-//         }
-//         #jam span:nth-child(3) {
-//           background: #298f19;
-//         }
-//         #jam::after {
-//           content: "";
-//           display: block;
-//           clear: both;
-//         }
-//         #unit span {
-//           float: left;
-//           width: 20%;
-//           margin-top: 30px;
-//           text-align: center;
-//           text-transform: uppercase;
-//           letter-spacing: 2px;
-//           font-size: 18px;
-//           text-shadow: 1px 1px 1px rgba(10, 10, 10, 0.7);
-//         }
-//         span.turn {
-//           animation: turn 0.7s ease;
-//         }
-//         @keyframes turn {
-//           0% {transform: rotateX(0deg)}
-//           100% {transform: rotateX(360deg)}
-//         }
-//         @media screen and (max-width: 980px){
-//           #jam span {
-//             float: left;
-//             text-align: center;
-//             font-size: 50px;
-//             margin: 0 1.5%;
-//             padding: 20px;
-//             width: 20%;
-//           }
-//           h1 {
-//             margin: 20px 5%;
-//           }
-//           .jam-digital {
-//             width: 100%;
-//             margin: 10% 20%;
-//           }
-//           #unit span {
-//             width: 23%;
-//           }
-//         }
-//         `}
-//       </style>
-//       <h1>Jam Digital</h1>
-//       <div id="jam"></div>
-//       <div id="unit">
-//         <span>Jam</span>
-//         <span>Menit</span>
-//         <span>Detik</span>
-//       </div>
-//     </div>
-//   );
-// };
+  return (
+    <div className="container">
+      <style>
+        {`
+        //   html {
+        //     font-size: 62.5%;
+        //   }
+          
+        //   * {
+        //     margin: 0;
+        //     padding: 0;
+        //     box-sizing: border-box;
+        //   }
+          
+        //   body {
+        //     font-family: "Lato", sans-serif;
+        //     background: #272727;
+        //     color: #ffd868;
+        //     display: flex;
+        //     justify-content: center;
+        //     align-items: center;
+        //     height: 100vh;
+        //   }
+          
+          .display-date {
+            align-items: center;
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 1.6rem;
+            font-weight: 600;
+          }
+          
+        //   .display-time {
+        //     display: flex;
+        //     font-size: 5rem;
+        //     font-weight: bold;
+        //     border: 2px solid #ffd868;
+        //     padding: 10px 20px;
+        //     border-radius: 5px;
+        //     transition: ease-in-out 0.1s;
+        //     transition-property: background, box-shadow, color;
+        //     -webkit-box-reflect: below 2px linear-gradient(transparent, rgba(255, 255, 255, 0.05));
+        //   }
+          
+          .display-time {
+            background: #ffd868;
+            box-shadow: 0 0 30px #ffd868;
+            color: #272727;
+            animation: rotate 1s linear infinite; /* Animasi rotasi pada hover */
+          }
+        `}
+      </style>
+      <div className="display-date">
+        <span id="day">day</span>,
+        <span id="daynum">00</span>
+        <span id="month">month</span>
+        <span id="year">0000</span>
+      </div>
+      <div className="display-time"></div>
+    </div>
+  );
+};
 
-// export default JamDigital;
-
+export default JamTanggal;
