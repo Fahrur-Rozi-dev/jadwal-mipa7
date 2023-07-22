@@ -52,7 +52,7 @@ function DigitalClock() {
   }, []);
 
   return (
-    <div className="m-3 rounded-xl bg-slate-800 mt-10">
+    <div className="m-3 rounded-xl bg-slate-800 mt-10 pt-4">
     <div className='container'>
       <div className='display-date gap-2 text-white font-sans'>
       <span>{dayWIB}</span>
