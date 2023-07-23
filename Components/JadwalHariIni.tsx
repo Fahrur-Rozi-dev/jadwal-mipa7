@@ -14,6 +14,8 @@ interface Subject {
 
 function TodayScheduleTable() {
   const [dayWIB, setDayWIB] = useState('');
+  const [dateWIB, setDateWIB] = useState('');
+
 
   useEffect(() => {
     const updateDay = () => {
@@ -24,6 +26,9 @@ function TodayScheduleTable() {
 
       const dayWIB = wibNow.format('dddd');
       const currentTime = wibNow.format('HH:mm:ss'); // Format waktu dengan detik
+      const dateWIB = wibNow.format('LL');
+
+      setDateWIB(dateWIB);
       setDayWIB(dayWIB);
     };
 
@@ -36,7 +41,7 @@ function TodayScheduleTable() {
 
   return (
     <div className="m-1">
-      <h2 className="text-xl font-bold font-sans mb-6 text-white text-center bg-slate-800 p-3 rounded-xl">Jadwal Pelajaran Hari Ini ( {dayWIB} )</h2>
+      <h2 className="text-xl font-bold font-sans mb-6 text-white text-center bg-slate-800 p-3 rounded-xl">Jadwal Pelajaran Hari Ini <br /> ( {dayWIB} ) {dateWIB}</h2>
       <div className="text-right mr-3 italic">*Jadwal ini otomatis tergantung hari*</div>
       {todaySchedule.length > 0 ? (
         <table className="w-full border-collapse border border-gray-700 bg-white">
